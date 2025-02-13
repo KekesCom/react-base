@@ -1,8 +1,8 @@
 import { Container } from '@/components/container/index';
 
-import { Navbar } from '../header/components/navbar';
 import { Logo } from '../logo';
 import { PhoneCallButton } from '../phone-call-button';
+import { Navbar } from './components/navbar';
 
 import styles from './header.module.scss';
 
