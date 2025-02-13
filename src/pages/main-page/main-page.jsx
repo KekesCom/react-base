@@ -5,13 +5,15 @@ import { MainPackages } from './components/main-packages';
 import { MainPromo } from './components/main-promo';
 import { MainTeachers } from './components/main-teachers';
 
-export const MainPage = () => (
-  <>
-    <MainPromo />
-    <MainAbout />
-    <MainBenefits />
-    <MainTeachers />
-    <MainPackages />
-    <MainForm />
-  </>
-);
+export const MainPage = () => {
+  return (
+    <>
+      <MainPromo />
+      <MainAbout />
+      <MainBenefits />
+      <MainTeachers />
+      <MainPackages />
+      <MainForm />
+    </>
+  );
+};

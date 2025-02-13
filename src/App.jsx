@@ -3,8 +3,10 @@ import { MainPage } from '@/pages/main-page';
 
 import './styles/index.scss';
 
-export const App = () => (
-  <Layout>
-    <MainPage />
-  </Layout>
-);
+export const App = () => {
+  return (
+    <Layout>
+      <MainPage />
+    </Layout>
+  );
+};
