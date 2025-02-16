@@ -1,0 +1,47 @@
+@use '@/styles/variables.scss' as *;
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.primary {
+  margin-top: 40px;
+  padding: 25px 54px;
+  background-color: $accent-color;
+  border-radius: $br-button;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $btn-color-primary-hover;
+  }
+}
+
+.secondary {
+  padding: 25px 54px;
+  background-color: $accent-color;
+  border-radius: $br-button;
+  color: $secondary-color;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $btn-color-primary-hover;
+  }
+}
+
+.text {
+  color: $accent-color;
+
+  &:hover {
+    color: $btn-color-primary-hover;
+  }
+}
+
+@media (max-width: 768px) {
+  .secondary {
+    padding: 20px 0;
+  }
+}
