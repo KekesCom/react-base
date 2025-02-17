@@ -4,44 +4,38 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  padding: 25px 54px;
   cursor: pointer;
   font-size: 18px;
+  border-radius: $br-primary;
+  transition: background-color 0.3s ease;
 }
 
 .primary {
-  margin-top: 40px;
-  padding: 25px 54px;
   background-color: $accent-color;
-  border-radius: $br-button;
-  transition: background-color 0.3s ease;
+  color: $secondary-color;
 
   &:hover {
-    background-color: $btn-color-primary-hover;
+    background-color: $hover-color;
   }
 }
 
 .secondary {
-  padding: 25px 54px;
-  background-color: $accent-color;
-  border-radius: $br-button;
+  background-color: $primary-color;
   color: $secondary-color;
-  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: $btn-color-primary-hover;
+    background-color: $secondary-color;
+    color: $primary-color;
   }
 }
 
 .text {
   color: $accent-color;
+  font-size: 18px;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: $btn-color-primary-hover;
-  }
-}
-
-@media (max-width: 768px) {
-  .secondary {
-    padding: 20px 0;
+    color: $hover-color;
   }
 }

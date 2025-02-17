@@ -8,7 +8,7 @@ export const Button = ({ variant = 'primary', additionalClassname, children, ...
       case 'secondary':
         return `${styles.button} ${styles.secondary}`;
       case 'text':
-        return `${styles.button} ${styles.text}`;
+        return styles.text;
       default:
         return styles.button;
     }
