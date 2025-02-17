@@ -5,6 +5,8 @@ $secondary-color: #ffffff;
 $tertiary-color: #dddce0;
 $accent-color: #d52027;
 
+$border-radius-primary: 5px;
+
 $font-default: 'Jost', sans-serif;
 
 $text-color-primary: $primary-color;
@@ -19,7 +21,10 @@ $bg-color-quaternary: $tertiary-color;
 $bg-color-accent: $accent-color;
 
 $controls-bg-primary: $accent-color;
+$controls-bg-primary-hover: #c50000;
 $controls-bg-secondary: $secondary-color;
 $controls-bg-tertiary: $primary-color;
+$controls-bg-tertiary-hover: #241d41;
 $controls-color-primary: $secondary-color;
 $controls-color-secondary: $accent-color;
+$controls-color-secondary-hover: $tertiary-color;
