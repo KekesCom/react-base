@@ -10,7 +10,7 @@ export const PackageItem = ({ package: { id, title, price, description } }) => {
         <span className={styles.packagePrice}>{price}</span>
         <span className={styles.packageDescription}>{description}</span>
       </div>
-      <Button additionalClassname={styles.btn}>Оставить заявку</Button>
+      <Button>Оставить заявку</Button>
     </div>
   );
 };

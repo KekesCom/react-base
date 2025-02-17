@@ -7,35 +7,35 @@
   padding: 25px 54px;
   cursor: pointer;
   font-size: 18px;
-  border-radius: $br-primary;
+  border-radius: $border-radius-primary;
   transition: background-color 0.3s ease;
 }
 
 .primary {
-  background-color: $accent-color;
-  color: $secondary-color;
+  background-color: $controls-bg-primary;
+  color: $text-color-secondary;
 
   &:hover {
-    background-color: $hover-color;
+    background-color: $controls-bg-primary-hover;
   }
 }
 
 .secondary {
-  background-color: $primary-color;
-  color: $secondary-color;
+  background-color: $controls-bg-tertiary;
+  color: $text-color-secondary;
 
   &:hover {
-    background-color: $secondary-color;
-    color: $primary-color;
+    background-color: $controls-bg-secondary;
+    color: $text-color-secondary;
   }
 }
 
 .text {
-  color: $accent-color;
+  color: $text-color-accent;
   font-size: 18px;
   transition: color 0.3s ease;
 
   &:hover {
-    color: $hover-color;
+    color: $controls-bg-primary-hover;
   }
 }
