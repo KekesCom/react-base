@@ -13,7 +13,7 @@
 
 .primary {
   background-color: $controls-bg-primary;
-  color: $text-color-secondary;
+  color: $controls-color-primary;
 
   &:hover {
     background-color: $controls-bg-primary-hover;
@@ -22,11 +22,11 @@
 
 .secondary {
   background-color: $controls-bg-tertiary;
-  color: $text-color-secondary;
+  color: $controls-color-primary;
 
   &:hover {
     background-color: $controls-bg-secondary;
-    color: $text-color-secondary;
+    color: $controls-color-tertiary;
   }
 }
 
@@ -36,6 +36,6 @@
   transition: color 0.3s ease;
 
   &:hover {
-    color: $controls-bg-primary-hover;
+    color: $controls-color-secondary-hover;
   }
 }
