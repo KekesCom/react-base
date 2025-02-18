@@ -1,8 +1,10 @@
+import { useState } from 'react';
+
 import { Container } from '@/components/container';
+import { TooltipIcon } from '@/components/tooltip';
 
 import styles from './main-benefits.module.scss';
 
-// eslint-disable-next-line no-unused-vars
 const benefitItems = [
   {
     id: 1,
@@ -18,7 +20,7 @@ const benefitItems = [
   },
   {
     id: 3,
-    subtitle: 'Практику ',
+    subtitle: 'Практику',
     description:
       'Возможность пройти практику по преподаванию робототехники на базе R:ED LAB (в оффлайн или онлайн формате)',
     tooltip: 'При наличии свободных мест',
@@ -26,12 +28,35 @@ const benefitItems = [
 ];
 
 export const MainBenefits = () => {
+  const [hoveredTooltipId, setHoveredTooltipId] = useState(null);
+
   return (
     <section className={styles.benefits}>
       <Container>
         <div className={styles.wrapper}>
           <h2 className={styles.title}>Что вы получите после курса</h2>
-          <div className={styles.items}>{/*Здесь должны быть отрисованы элементы*/}</div>
+          <div className={styles.items}>
+            {benefitItems.map((item) => (
+              <div key={item.id} className={styles.item}>
+                <span className={styles.subtitle}>
+                  {item.subtitle}
+                  {item.tooltip && (
+                    <span
+                      className={styles.icon}
+                      onMouseEnter={() => setHoveredTooltipId(item.id)}
+                      onMouseLeave={() => setHoveredTooltipId(null)}
+                    >
+                      <TooltipIcon />
+                      {hoveredTooltipId === item.id && (
+                        <div className={styles.tooltip}>{item.tooltip}</div>
+                      )}
+                    </span>
+                  )}
+                </span>
+                <span className={styles.description}>{item.description}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>
