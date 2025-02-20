@@ -1,3 +1,25 @@
+@use '@/styles/variables.scss' as *;
+
+.tooltip {
+  position: absolute;
+  bottom: 45px;
+  left: 30%;
+  font-size: 16px;
+  padding: 14px 12px;
+  color: $text-color-tertiary;
+  font-weight: 400;
+  box-shadow: 0 2px 8px 0 $box-shadow-primary;
+  background-color: $bg-color-secondary;
+  z-index: 10;
+  flex-wrap: nowrap;
+}
 .tooltipIcon {
-  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .tooltip {
+    left: 15%;
+  }
 }

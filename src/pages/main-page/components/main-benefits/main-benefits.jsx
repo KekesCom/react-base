@@ -1,7 +1,6 @@
-import { useState } from 'react';
-
 import { Container } from '@/components/container';
-import { TooltipIcon } from '@/components/tooltip';
+
+import { BenefitItem } from './components/benefit-item';
 
 import styles from './main-benefits.module.scss';
 
@@ -28,8 +27,6 @@ const benefitItems = [
 ];
 
 export const MainBenefits = () => {
-  const [hoveredTooltipId, setHoveredTooltipId] = useState(null);
-
   return (
     <section className={styles.benefits}>
       <Container>
@@ -37,24 +34,12 @@ export const MainBenefits = () => {
           <h2 className={styles.title}>Что вы получите после курса</h2>
           <div className={styles.items}>
             {benefitItems.map((item) => (
-              <div key={item.id} className={styles.item}>
-                <span className={styles.subtitle}>
-                  {item.subtitle}
-                  {item.tooltip && (
-                    <span
-                      className={styles.icon}
-                      onMouseEnter={() => setHoveredTooltipId(item.id)}
-                      onMouseLeave={() => setHoveredTooltipId(null)}
-                    >
-                      <TooltipIcon />
-                      {hoveredTooltipId === item.id && (
-                        <div className={styles.tooltip}>{item.tooltip}</div>
-                      )}
-                    </span>
-                  )}
-                </span>
-                <span className={styles.description}>{item.description}</span>
-              </div>
+              <BenefitItem
+                key={item.id}
+                subtitle={item.subtitle}
+                description={item.description}
+                tooltip={item.tooltip}
+              />
             ))}
           </div>
         </div>
