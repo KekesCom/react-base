@@ -1,5 +1,5 @@
 import { TooltipIcon } from '@/assets/icons';
-import { Tooltip } from '@/components/tooltip/Tooltip';
+import { Tooltip } from '@/components/tooltip/tooltip';
 
 import styles from './benefit-item.module.scss';
 
