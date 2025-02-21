@@ -1,17 +1,13 @@
 import { useState } from 'react';
 
+import { TooltipIcon as DefaultTooltipIcon } from '@/assets/icons';
+
 import styles from './tooltip.module.scss';
 
-export const Tooltip = ({ children, content }) => {
+export const Tooltip = ({ children, ToolTipIcon = DefaultTooltipIcon }) => {
   const [isVisible, setIsVisible] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsVisible(false);
-  };
+  const handleMouseEnter = () => setIsVisible(true);
+  const handleMouseLeave = () => setIsVisible(false);
 
   return (
     <span
@@ -19,8 +15,9 @@ export const Tooltip = ({ children, content }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {children}
-      {isVisible && <span className={styles.tooltip}>{content}</span>}
+      <ToolTipIcon />
+
+      {isVisible && <span className={styles.tooltip}>{children}</span>}
     </span>
   );
 };
