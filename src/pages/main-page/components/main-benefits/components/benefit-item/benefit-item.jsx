@@ -8,7 +8,7 @@ export const BenefitItem = ({ id, subtitle, description, tooltip }) => {
     <div id={id} className={styles.benefitItem}>
       <h3 className={styles.subtitle}>
         {subtitle}
-        {tooltip && (
+        {Boolean(tooltip) && (
           <Tooltip content={tooltip}>
             <TooltipIcon />
           </Tooltip>
