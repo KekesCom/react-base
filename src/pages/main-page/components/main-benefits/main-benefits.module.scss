@@ -10,6 +10,14 @@
       font-weight: 600;
     }
   }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    gap: 40px;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -25,7 +33,12 @@
 }
 
 @media (max-width: 768px) {
-  .profit {
-    padding: 40px 0;
+  .benefits {
+    .wrapper {
+      .title {
+        font-size: 30px;
+        text-align: center;
+      }
+    }
   }
 }
