@@ -29,7 +29,7 @@ export const MainTeachers = () => {
   }, [swiperRef, scrollbarRef]);
 
   const initSwiper = (swiper) => {
-    return (swiperRef.current = swiper);
+    swiperRef.current = swiper;
   };
 
   const createSlideChangeHandler = (direction) => () => {
@@ -49,7 +49,7 @@ export const MainTeachers = () => {
         <div className={styles.items}>
           <Swiper
             modules={[Navigation, Scrollbar, Mousewheel]}
-            spaceBetween={20}
+            spaceBetween={isMobile ? 20 : 40}
             slidesPerView={isMobile ? 'auto' : 3}
             navigation={{
               nextEl: styles.next,

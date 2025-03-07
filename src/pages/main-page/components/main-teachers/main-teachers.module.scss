@@ -27,7 +27,7 @@
       height: 5px;
       width: 360px;
       border-radius: 40px;
-      background-color: $controls-bg-fourth;
+      background-color: $controls-bg-quaternary;
       bottom: 20px;
 
       :global {
@@ -91,7 +91,8 @@
       }
 
       .scrollbar {
-        width: calc(100%);
+        width: calc(100% - 20px);
+        left: 10px;
       }
 
       .swiperButtons {
