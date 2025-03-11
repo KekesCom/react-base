@@ -4,7 +4,7 @@ import { teachersImages } from '@/assets/images';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
 import { TabSection } from './components/tab-section';
-import { Tabs } from './components/Tabs';
+import { Tabs } from './components/tabs';
 import { Select } from './select';
 import { Social } from './social';
 
