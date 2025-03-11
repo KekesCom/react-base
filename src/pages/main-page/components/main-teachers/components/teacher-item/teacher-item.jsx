@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { teachersImages } from '@/assets/images';
 import { Button } from '@/components/button';
-import { Modal } from '@/components/Modal';
+import { Modal } from '@/components/modal';
 
 import { ModalContent } from '../modal-content/modal-content';
 
