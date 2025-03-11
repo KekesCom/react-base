@@ -6,7 +6,7 @@ export const CloseIcon = () => {
         y1="2"
         x2="12.6"
         y2="13.1075"
-        stroke="white"
+        stroke="black"
         strokeWidth="2.11065"
         strokeLinecap="round"
       />
@@ -15,7 +15,7 @@ export const CloseIcon = () => {
         y1="13.1076"
         x2="12.5079"
         y2="2.0001"
-        stroke="white"
+        stroke="black"
         strokeWidth="2.11065"
         strokeLinecap="round"
       />

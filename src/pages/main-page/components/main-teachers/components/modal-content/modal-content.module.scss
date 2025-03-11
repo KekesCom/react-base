@@ -1,0 +1,68 @@
+@use '@/styles/variables.scss' as *;
+
+.modalContentWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .teacherHeader {
+    display: flex;
+    gap: 40px;
+
+    .teacherImage {
+      width: 160px;
+      height: 222px;
+      border-radius: $border-radius-secondary;
+    }
+    .teacherInfo {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+
+      .teacherName {
+        font-size: 24px;
+        font-weight: 600;
+        color: $text-color-primary;
+      }
+
+      .teacherDesc {
+        font-size: 18px;
+        color: $text-color-tertiary;
+      }
+    }
+  }
+
+  .tabContent {
+    border-top: 1px solid $bg-color-quaternary;
+    padding: 20px 0 40px;
+    flex-grow: 1;
+    overflow-y: auto;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 40px;
+      left: 0px;
+      width: 94%;
+      height: 40px;
+      background-image: linear-gradient(to bottom, #ffffff00, #ffffffff);
+      z-index: 1000;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modalContentWrapper {
+    .teacherHeader {
+      .teacherImage {
+        width: 108px;
+        height: 150px;
+      }
+    }
+    .tabContent {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
