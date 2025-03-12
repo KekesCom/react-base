@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 
 import { CloseIcon } from '@/assets/icons';
+import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
@@ -10,6 +11,12 @@ import styles from './modal-window.module.scss';
 export const Modal = ({ children, isOpen, onClose }) => {
   const { isMobile } = useWindowSize();
   const { lockScroll, unlockScroll } = useScrollLock();
+  const modalRef = useRef(null);
+
+  useOutsideClick(modalRef, () => {
+    unlockScroll();
+    onClose();
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -34,7 +41,7 @@ export const Modal = ({ children, isOpen, onClose }) => {
   return ReactDOM.createPortal(
     <div className={styles.modal}>
       <div className={styles.modalBackdrop} />
-      <div className={styles.modalContent}>
+      <div className={styles.modalContent} ref={modalRef}>
         {children}
         <button className={styles.modalClose} onClick={handleCloseModal}>
           {isMobile ? <CloseIcon /> : 'Закрыть'}
