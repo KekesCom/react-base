@@ -1,13 +1,21 @@
 import styles from './tabs.module.scss';
 
-export const Tabs = ({ options, activeTab, onChange }) => {
+export const Tabs = ({ options, activeTab, onClick }) => {
+  const createTabButtonClickHandler = (value) => () => {
+    onClick(value);
+  };
+
   return (
     <div className={styles.tabs}>
       {options.map(({ value, label }) => {
-        const tabClassName = `${styles.tab} ${activeTab === value ? styles.activeTab : ''}`;
-
+        const isActive = activeTab.name === value.name;
+        const tabClassName = `${styles.tab} ${isActive ? styles.activeTab : ''}`;
         return (
-          <button key={value} className={tabClassName} onClick={() => onChange(value)}>
+          <button
+            key={value.name}
+            className={tabClassName}
+            onClick={createTabButtonClickHandler(value)}
+          >
             {label}
           </button>
         );

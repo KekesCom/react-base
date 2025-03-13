@@ -1,4 +1,4 @@
-export const ArrowDowm = ({ className }) => {
+export const ArrowDown = ({ className }) => {
   return (
     <svg
       className={className}

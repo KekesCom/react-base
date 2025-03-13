@@ -4,7 +4,7 @@ import { teachersImages } from '@/assets/images';
 import { Button } from '@/components/button';
 import { Modal } from '@/components/modal';
 
-import { ModalContent } from '../modal-content/modal-content';
+import { TeacherModalContent } from '../modal-content/modal-content';
 
 import styles from './teacher-item.module.scss';
 
@@ -25,7 +25,7 @@ export const TeacherItem = ({ teacher }) => {
         </Button>
       </div>
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-        <ModalContent teacher={teacher} />
+        <TeacherModalContent teacher={teacher} />
       </Modal>
     </div>
   );

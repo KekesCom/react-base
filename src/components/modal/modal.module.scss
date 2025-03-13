@@ -9,7 +9,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
   z-index: 1000;
 
   .modalBackdrop {
@@ -19,7 +18,6 @@
     width: 100%;
     height: 100%;
     background: $bg-color-quinary;
-    z-index: 1;
   }
 
   .modalContent {
@@ -27,9 +25,8 @@
     background: $bg-color-secondary;
     border-radius: $border-radius-secondary;
     padding: 40px;
-    width: 940px;
-    height: 768px;
-    z-index: 2;
+    max-height: 90dvh;
+    max-width: 90vw;
   }
   .modalClose {
     position: absolute;
@@ -38,7 +35,6 @@
     font-size: 18px;
     cursor: pointer;
     color: $text-color-tertiary;
-    z-index: 3000;
   }
 }
 
@@ -53,7 +49,9 @@
       border-radius: 0;
       padding: 20px;
     }
-
+    .modalContent {
+      max-height: 100vh;
+    }
     .modalClose {
       top: 20px;
       right: 20px;

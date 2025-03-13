@@ -1,28 +1,18 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-import { CloseIcon } from '@/assets/icons';
-import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { useScrollLock } from '@/hooks/useScrollLock';
-import { useWindowSize } from '@/hooks/useWindowSize';
+import { CloseIconBlack } from '@/assets/icons';
+import { useScrollLock, useWindowSize } from '@/hooks/index';
 
-import styles from './modal-window.module.scss';
+import styles from './modal.module.scss';
 
 export const Modal = ({ children, isOpen, onClose }) => {
   const { isMobile } = useWindowSize();
   const { lockScroll, unlockScroll } = useScrollLock();
-  const modalRef = useRef(null);
-
-  useOutsideClick(modalRef, () => {
-    unlockScroll();
-    onClose();
-  });
 
   useEffect(() => {
     if (isOpen) {
       lockScroll();
-    } else {
-      unlockScroll();
     }
     return () => {
       unlockScroll();
@@ -40,11 +30,11 @@ export const Modal = ({ children, isOpen, onClose }) => {
 
   return ReactDOM.createPortal(
     <div className={styles.modal}>
-      <div className={styles.modalBackdrop} />
-      <div className={styles.modalContent} ref={modalRef}>
+      <div className={styles.modalBackdrop} onClick={handleCloseModal} />
+      <div className={styles.modalContent}>
         {children}
         <button className={styles.modalClose} onClick={handleCloseModal}>
-          {isMobile ? <CloseIcon /> : 'Закрыть'}
+          {isMobile ? <CloseIconBlack /> : 'Закрыть'}
         </button>
       </div>
     </div>,

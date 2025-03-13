@@ -1,26 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { teachersImages } from '@/assets/images';
+import { Select } from '@/components/select';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
+import { Social } from '../modal-content/components/social';
 import { TabSection } from './components/tab-section';
 import { Tabs } from './components/tabs';
-import { Select } from './select';
-import { Social } from './social';
 
 import styles from './modal-content.module.scss';
 
-export const ModalContent = ({ teacher }) => {
+export const TeacherModalContent = ({ teacher }) => {
   const { isMobile } = useWindowSize();
 
-  const [activeTab, setActiveTab] = useState(teacher.tabs[0]?.name || '');
+  const [activeTab, setActiveTab] = useState(teacher.tabs[0]);
+  const [activeTabContent, setActiveTabContent] = useState(teacher.tabs[0].data);
 
   const options = teacher.tabs.map((tab) => ({
-    value: tab.name,
+    value: tab,
     label: tab.title,
   }));
 
-  const activeTabData = teacher.tabs.find((tab) => tab.name === activeTab);
+  useEffect(() => {
+    setActiveTabContent(activeTab.data);
+  }, [activeTab]);
 
   return (
     <div className={styles.modalContentWrapper}>
@@ -38,14 +41,15 @@ export const ModalContent = ({ teacher }) => {
       </div>
 
       {isMobile ? (
-        <Select options={options} value={activeTab} onChange={(value) => setActiveTab(value)} />
+        <Select options={options} value={activeTab} onChange={setActiveTab} />
       ) : (
-        <Tabs options={options} activeTab={activeTab} onChange={setActiveTab} />
+        <Tabs options={options} activeTab={activeTab} onClick={setActiveTab} />
       )}
 
       <div className={styles.tabContent}>
-        {activeTabData &&
-          activeTabData.data.map((section, index) => <TabSection key={index} section={section} />)}
+        {activeTabContent.map((section, index) => (
+          <TabSection key={index} section={section} />
+        ))}
       </div>
     </div>
   );

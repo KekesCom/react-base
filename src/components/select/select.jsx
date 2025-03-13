@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-import { ArrowDowm } from '@/assets/icons';
+import { ArrowDown } from '@/assets/icons';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 
 import styles from './select.module.scss';
@@ -9,18 +9,18 @@ export const Select = ({ options, value, onChange }) => {
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const selectRef = useRef(null);
 
-  const handleClose = () => {
+  const handleSelectClose = () => {
     setIsSelectOpen(false);
   };
 
-  useOutsideClick(selectRef, handleClose);
+  useOutsideClick(selectRef, handleSelectClose);
 
   const handleOptionSelect = (optionValue) => {
     onChange(optionValue);
-    handleClose();
+    handleSelectClose();
   };
 
-  const buttonText = options.find((option) => option.value === value)?.label;
+  const buttonText = value.title;
   const arrowClass = `${styles.arrow} ${isSelectOpen ? styles.activeArrow : ''}`;
 
   const optionButtons = options.map(({ value: optionValue, label }) => {
@@ -28,7 +28,7 @@ export const Select = ({ options, value, onChange }) => {
 
     return (
       <button
-        key={optionValue}
+        key={optionValue.name}
         className={optionClass}
         onClick={() => handleOptionSelect(optionValue)}
       >
@@ -41,9 +41,9 @@ export const Select = ({ options, value, onChange }) => {
     <div className={styles.select} ref={selectRef}>
       <button className={styles.button} onClick={() => setIsSelectOpen((prev) => !prev)}>
         {buttonText}
-        <ArrowDowm className={arrowClass} />
+        <ArrowDown className={arrowClass} />
       </button>
-      {isSelectOpen && <div className={styles.dropdown}>{optionButtons}</div>}
+      {!!isSelectOpen && <div className={styles.dropdown}>{optionButtons}</div>}
     </div>
   );
 };
