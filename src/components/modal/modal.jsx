@@ -30,10 +30,10 @@ export const Modal = ({ children, isOpen, onClose }) => {
 
   return ReactDOM.createPortal(
     <div className={styles.modal}>
-      <div className={styles.modalBackdrop} onClick={handleCloseModal} />
-      <div className={styles.modalContent}>
+      <div className={styles.backdrop} onClick={handleCloseModal} />
+      <div className={styles.content}>
         {children}
-        <button className={styles.modalClose} onClick={handleCloseModal}>
+        <button className={styles.close} onClick={handleCloseModal}>
           {isMobile ? <CloseIconBlack /> : 'Закрыть'}
         </button>
       </div>

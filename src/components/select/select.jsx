@@ -15,9 +15,9 @@ export const Select = ({ options, value, onChange }) => {
 
   useOutsideClick(selectRef, handleSelectClose);
 
-  const handleOptionSelect = (optionValue) => {
+  const createOptionsSelectHandler = (optionValue) => () => {
     onChange(optionValue);
-    handleSelectClose();
+    setIsSelectOpen(false);
   };
 
   const buttonText = value.title;
@@ -30,7 +30,7 @@ export const Select = ({ options, value, onChange }) => {
       <button
         key={optionValue.name}
         className={optionClass}
-        onClick={() => handleOptionSelect(optionValue)}
+        onClick={createOptionsSelectHandler(optionValue)}
       >
         {label}
       </button>
@@ -43,7 +43,7 @@ export const Select = ({ options, value, onChange }) => {
         {buttonText}
         <ArrowDown className={arrowClass} />
       </button>
-      {!!isSelectOpen && <div className={styles.dropdown}>{optionButtons}</div>}
+      {isSelectOpen && <div className={styles.dropdown}>{optionButtons}</div>}
     </div>
   );
 };

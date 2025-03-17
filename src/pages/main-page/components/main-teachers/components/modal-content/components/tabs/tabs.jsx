@@ -5,21 +5,22 @@ export const Tabs = ({ options, activeTab, onClick }) => {
     onClick(value);
   };
 
+  const TabClassName = (value) => {
+    const isActive = activeTab.name === value.name;
+    return `${styles.tab} ${isActive ? styles.activeTab : ''}`;
+  };
+
   return (
     <div className={styles.tabs}>
-      {options.map(({ value, label }) => {
-        const isActive = activeTab.name === value.name;
-        const tabClassName = `${styles.tab} ${isActive ? styles.activeTab : ''}`;
-        return (
-          <button
-            key={value.name}
-            className={tabClassName}
-            onClick={createTabButtonClickHandler(value)}
-          >
-            {label}
-          </button>
-        );
-      })}
+      {options.map(({ value, label }) => (
+        <button
+          key={value.name}
+          className={TabClassName(value)}
+          onClick={createTabButtonClickHandler(value)}
+        >
+          {label}
+        </button>
+      ))}
     </div>
   );
 };

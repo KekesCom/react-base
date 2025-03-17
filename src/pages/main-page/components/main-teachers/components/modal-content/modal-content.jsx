@@ -11,10 +11,10 @@ import { Tabs } from './components/tabs';
 import styles from './modal-content.module.scss';
 
 export const TeacherModalContent = ({ teacher }) => {
-  const { isMobile } = useWindowSize();
-
   const [activeTab, setActiveTab] = useState(teacher.tabs[0]);
   const [activeTabContent, setActiveTabContent] = useState(teacher.tabs[0].data);
+
+  const { isMobile } = useWindowSize();
 
   const options = teacher.tabs.map((tab) => ({
     value: tab,
