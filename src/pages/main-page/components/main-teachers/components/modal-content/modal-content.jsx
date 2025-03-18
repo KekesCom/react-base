@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { teachersImages } from '@/assets/images';
 import { Select } from '@/components/select';
@@ -12,7 +12,6 @@ import styles from './modal-content.module.scss';
 
 export const TeacherModalContent = ({ teacher }) => {
   const [activeTab, setActiveTab] = useState(teacher.tabs[0]);
-  const [activeTabContent, setActiveTabContent] = useState(teacher.tabs[0].data);
 
   const { isMobile } = useWindowSize();
 
@@ -20,10 +19,6 @@ export const TeacherModalContent = ({ teacher }) => {
     value: tab,
     label: tab.title,
   }));
-
-  useEffect(() => {
-    setActiveTabContent(activeTab.data);
-  }, [activeTab]);
 
   return (
     <div className={styles.modalContentWrapper}>
@@ -47,7 +42,7 @@ export const TeacherModalContent = ({ teacher }) => {
       )}
 
       <div className={styles.tabContent}>
-        {activeTabContent.map((section, index) => (
+        {activeTab.data.map((section, index) => (
           <TabSection key={index} section={section} />
         ))}
       </div>
