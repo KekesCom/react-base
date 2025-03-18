@@ -1,0 +1,13 @@
+@use '@/styles/variables.scss' as *;
+
+.section {
+  font-size: 20px;
+  color: $text-color-primary;
+
+  .sectionTitle {
+    margin: 40px 0 20px 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: $text-color-primary;
+  }
+}
