@@ -17,12 +17,12 @@ body {
   .lock {
     overflow: hidden;
   }
+
+  .anchor {
+    scroll-margin-top: 30px;
+  }
 }
 
 section {
   padding: 120px 0;
-}
-
-.anchor {
-  scroll-margin-top: 30px;
 }
