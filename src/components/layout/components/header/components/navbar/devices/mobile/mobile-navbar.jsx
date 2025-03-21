@@ -23,10 +23,10 @@ export const MobileNavbar = ({ navbarItems }) => {
   return (
     <>
       <div className={styles.buttons}>
-        <a href="tel:+7800001122" className={styles.icons}>
+        <a href="tel:+7800001122" className={styles.iconButtons}>
           <PhoneIcon />
         </a>
-        <button onClick={handleMobileNavbarOpen} className={styles.icons}>
+        <button onClick={handleMobileNavbarOpen} className={styles.iconButtons}>
           <BurgerIcon />
         </button>
       </div>
@@ -44,7 +44,7 @@ export const MobileNavbar = ({ navbarItems }) => {
           </nav>
           <button
             onClick={handleMobileNavbarClose}
-            className={`${styles.closeMenu} ${styles.icons}`}
+            className={`${styles.closeMenu} ${styles.iconButtons}`}
           >
             <CloseIcon />
           </button>
