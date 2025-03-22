@@ -1,0 +1,45 @@
+@use '@/styles/variables.scss' as *;
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid $border-color-accent;
+}
+
+.burgerMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 1000;
+  background-color: $bg-color-tertiary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 30px;
+  }
+
+  .closeMenu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}

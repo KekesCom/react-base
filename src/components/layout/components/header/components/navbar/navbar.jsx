@@ -1,6 +1,7 @@
-import { Link } from '@/components/link';
+import { useWindowSize } from '@/hooks';
 
-import styles from './navbar.module.scss';
+import { DesktopNavbar } from './devices/desktop/desktop-navbar';
+import { MobileNavbar } from './devices/mobile/mobile-navbar';
 
 const navbarItems = [
   {
@@ -21,15 +22,15 @@ const navbarItems = [
 ];
 
 export const Navbar = () => {
+  const { width } = useWindowSize();
+
   return (
-    <nav>
-      <ul className={styles.navbar}>
-        {navbarItems.map((link) => (
-          <li key={link.id}>
-            <Link href={link.href}>{link.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <>
+      {width <= 1024 ? (
+        <MobileNavbar navbarItems={navbarItems} />
+      ) : (
+        <DesktopNavbar navbarItems={navbarItems} />
+      )}
+    </>
   );
 };

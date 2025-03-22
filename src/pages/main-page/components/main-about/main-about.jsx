@@ -27,11 +27,11 @@ const aboutItems = [
 
 export const MainAbout = () => {
   return (
-    <section className={styles.about}>
+    <section className={`${styles.about} anchor`} id="status">
       <Container>
         <div className={styles.wrapper}>
           <p className={styles.text}>
-            <b>Robo School</b> – учреждение для формирования кадрового педагогического резерва в
+            <b>Robo School</b> - учреждение для формирования кадрового педагогического резерва в
             сфере робототехники и программирования
           </p>
           <div className={styles.items}>
